@@ -1,5 +1,7 @@
 # tar custpm rpm with zstd compression support
 
+* CentOS 7 64bit Only
+
 Creates a tar archive compressed with zstd
 
 ```

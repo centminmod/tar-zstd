@@ -1,8 +1,30 @@
 # tar custpm rpm with zstd compression support
 
 * CentOS 7 64bit Only
+* latest tar version with zstd compression support
 
-Creates a tar archive compressed with zstd
+```
+ Compression options:
+
+  -a, --auto-compress        use archive suffix to determine the compression
+                             program
+  -I, --use-compress-program=PROG
+                             filter through PROG (must accept -d)
+  -j, --bzip2                filter the archive through bzip2
+  -J, --xz                   filter the archive through xz
+      --lzip                 filter the archive through lzip
+      --lzma                 filter the archive through lzma
+      --lzop                 filter the archive through lzop
+      --no-auto-compress     do not use archive suffix to determine the
+                             compression program
+  -z, --gzip, --gunzip, --ungzip   filter the archive through gzip
+      --zstd                 filter the archive through zstd
+  -Z, --compress, --uncompress   filter the archive through compress
+```
+
+# Usage
+
+Create a tar archive compressed with zstd
 
 ```
 tar -caf directory.tar.zst directory/
@@ -13,6 +35,8 @@ Decompress zstd compressed archive
 ```
 tar -xaf directory.tar.zst
 ```
+
+# RPM Info
 
 ```
 tar --version

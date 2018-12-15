@@ -22,6 +22,16 @@
   -Z, --compress, --uncompress   filter the archive through compress
 ```
 
+# Install
+
+On Centmin Mod 123.09beta01 or higher LEMP stack installs with CentOS 7.x 64bit
+
+```
+cd /svr-setup
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm -O tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm
+yum localinstall tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm
+```
+
 # Usage
 
 Create a tar archive compressed with zstd

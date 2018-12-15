@@ -24,7 +24,46 @@
 
 # Install
 
-On Centmin Mod 123.09beta01 or higher LEMP stack installs with CentOS 7.x 64bit
+On Centmin Mod 123.09beta01 or higher LEMP stack installs with CentOS 7.x 64bit first run centmin.sh menu option 17 to install multi-threaded compression tools including Facebook zstd compression tool.
+
+```
+--------------------------------------------------------
+     Centmin Mod Menu 123.09beta01 centminmod.com     
+--------------------------------------------------------
+1).  Centmin Install
+2).  Add Nginx vhost domain
+3).  NSD setup domain name DNS
+4).  Nginx Upgrade / Downgrade
+5).  PHP Upgrade / Downgrade
+6).  XCache Re-install
+7).  APC Cache Re-install
+8).  XCache Install
+9).  APC Cache Install
+10). Memcached Server Re-install
+11). MariaDB MySQL Upgrade & Management
+12). Zend OpCache Install/Re-install
+13). Install/Reinstall Redis PHP Extension
+14). SELinux disable
+15). Install/Reinstall ImagicK PHP Extension
+16). Change SSHD Port Number
+17). Multi-thread compression: pigz,pbzip2,lbzip2...
+18). Suhosin PHP Extension install
+19). Install FFMPEG and FFMPEG PHP Extension
+20). NSD Install/Re-Install
+21). Update - Nginx + PHP-FPM + Siege
+22). Add Wordpress Nginx vhost + Cache Plugin
+23). Update Centmin Mod Code Base
+24). Exit
+--------------------------------------------------------
+Enter option [ 1 - 24 ] 17
+```
+
+```
+zstd --version
+*** zstd command line interface 64-bits v1.3.7, by Yann Collet ***
+```
+
+Then install custom tar zstd supported rpm.
 
 ```
 cd /svr-setup

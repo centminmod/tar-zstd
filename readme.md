@@ -47,6 +47,56 @@ rpm -qa --changelog tar-zstd-gcc7
 ```
 
 ```
+rpm -ql tar-zstd-gcc7 
+/usr/local/bin/tar
+/usr/local/libexec/rmt
+/usr/local/share/info/dir
+/usr/local/share/info/tar.info
+/usr/local/share/info/tar.info-1
+/usr/local/share/info/tar.info-2
+/usr/local/share/locale/bg/LC_MESSAGES/tar.mo
+/usr/local/share/locale/ca/LC_MESSAGES/tar.mo
+/usr/local/share/locale/cs/LC_MESSAGES/tar.mo
+/usr/local/share/locale/da/LC_MESSAGES/tar.mo
+/usr/local/share/locale/de/LC_MESSAGES/tar.mo
+/usr/local/share/locale/el/LC_MESSAGES/tar.mo
+/usr/local/share/locale/eo/LC_MESSAGES/tar.mo
+/usr/local/share/locale/es/LC_MESSAGES/tar.mo
+/usr/local/share/locale/et/LC_MESSAGES/tar.mo
+/usr/local/share/locale/eu/LC_MESSAGES/tar.mo
+/usr/local/share/locale/fi/LC_MESSAGES/tar.mo
+/usr/local/share/locale/fr/LC_MESSAGES/tar.mo
+/usr/local/share/locale/ga/LC_MESSAGES/tar.mo
+/usr/local/share/locale/gl/LC_MESSAGES/tar.mo
+/usr/local/share/locale/hr/LC_MESSAGES/tar.mo
+/usr/local/share/locale/hu/LC_MESSAGES/tar.mo
+/usr/local/share/locale/id/LC_MESSAGES/tar.mo
+/usr/local/share/locale/it/LC_MESSAGES/tar.mo
+/usr/local/share/locale/ja/LC_MESSAGES/tar.mo
+/usr/local/share/locale/ko/LC_MESSAGES/tar.mo
+/usr/local/share/locale/ky/LC_MESSAGES/tar.mo
+/usr/local/share/locale/ms/LC_MESSAGES/tar.mo
+/usr/local/share/locale/nb/LC_MESSAGES/tar.mo
+/usr/local/share/locale/nl/LC_MESSAGES/tar.mo
+/usr/local/share/locale/pl/LC_MESSAGES/tar.mo
+/usr/local/share/locale/pt/LC_MESSAGES/tar.mo
+/usr/local/share/locale/pt_BR/LC_MESSAGES/tar.mo
+/usr/local/share/locale/ro/LC_MESSAGES/tar.mo
+/usr/local/share/locale/ru/LC_MESSAGES/tar.mo
+/usr/local/share/locale/sk/LC_MESSAGES/tar.mo
+/usr/local/share/locale/sl/LC_MESSAGES/tar.mo
+/usr/local/share/locale/sr/LC_MESSAGES/tar.mo
+/usr/local/share/locale/sv/LC_MESSAGES/tar.mo
+/usr/local/share/locale/tr/LC_MESSAGES/tar.mo
+/usr/local/share/locale/uk/LC_MESSAGES/tar.mo
+/usr/local/share/locale/vi/LC_MESSAGES/tar.mo
+/usr/local/share/locale/zh_CN/LC_MESSAGES/tar.mo
+/usr/local/share/locale/zh_TW/LC_MESSAGES/tar.mo
+/usr/local/share/man/man1/tar.1
+/usr/local/share/man/man8/rmt.8
+```
+
+```
 tar --help
 Usage: tar [OPTION...] [FILE]...
 GNU 'tar' saves many files together into a single tape or disk archive, and can

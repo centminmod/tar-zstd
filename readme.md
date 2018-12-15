@@ -71,6 +71,45 @@ wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc7-1.30.90-1.el7.x86_
 yum localinstall tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm
 ```
 
+```
+yum localinstall tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm
+Loaded plugins: fastestmirror, priorities, versionlock
+Examining tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm: tar-zstd-gcc7-1.30.90-1.el7.x86_64
+Marking tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm to be installed
+Resolving Dependencies
+--> Running transaction check
+---> Package tar-zstd-gcc7.x86_64 0:1.30.90-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+==========================================================================================================================================================================================================================================================
+ Package                                                  Arch                                              Version                                                  Repository                                                                      Size
+==========================================================================================================================================================================================================================================================
+Installing:
+ tar-zstd-gcc7                                            x86_64                                            1.30.90-1.el7                                            /tar-zstd-gcc7-1.30.90-1.el7.x86_64                                            3.4 M
+
+Transaction Summary
+==========================================================================================================================================================================================================================================================
+Install  1 Package
+
+Total size: 3.4 M
+Installed size: 3.4 M
+Is this ok [y/d/N]: y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : tar-zstd-gcc7-1.30.90-1.el7.x86_64                                                                                                                                                                                                     1/1 
+  Verifying  : tar-zstd-gcc7-1.30.90-1.el7.x86_64                                                                                                                                                                                                     1/1 
+
+Installed:
+  tar-zstd-gcc7.x86_64 0:1.30.90-1.el7                                                                                                                                                                                                                    
+
+Complete!
+```
+
 # Usage
 
 Create a tar archive compressed with zstd

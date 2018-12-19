@@ -8,7 +8,6 @@ TARRPM_NAME='tar-zstd'
 
 # RPM related
 BUILTRPM='y'
-DISTTAG='el7'
 RPMSAVE_PATH="$DIR_TMP"
 # whether to test install the RPMs build
 # or just build RPMs without installing
@@ -19,17 +18,49 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 ###################################################
+CENTOSVER=$(awk '{ print $3 }' /etc/redhat-release)
+
+if [ "$CENTOSVER" == 'release' ]; then
+    CENTOSVER=$(awk '{ print $4 }' /etc/redhat-release | cut -d . -f1,2)
+    if [[ "$(cat /etc/redhat-release | awk '{ print $4 }' | cut -d . -f1)" = '7' ]]; then
+        CENTOS_SEVEN='7'
+    fi
+fi
+
+if [[ "$(cat /etc/redhat-release | awk '{ print $3 }' | cut -d . -f1)" = '6' ]]; then
+    CENTOS_SIX='6'
+fi
+
+# Check for Redhat Enterprise Linux 7.x
+if [ "$CENTOSVER" == 'Enterprise' ]; then
+    CENTOSVER=$(awk '{ print $7 }' /etc/redhat-release)
+    if [[ "$(awk '{ print $1,$2 }' /etc/redhat-release)" = 'Red Hat' && "$(awk '{ print $7 }' /etc/redhat-release | cut -d . -f1)" = '7' ]]; then
+        CENTOS_SEVEN='7'
+        REDHAT_SEVEN='y'
+    fi
+fi
+
+if [[ -f /etc/system-release && "$(awk '{print $1,$2,$3}' /etc/system-release)" = 'Amazon Linux AMI' ]]; then
+    CENTOS_SIX='6'
+fi
+
+if [[ "$CENTOS_SIX" -eq '6' ]]; then
+  DISTTAG='el6'
+elif [[ "$CENTOS_SEVEN" -eq '7' ]]; then
+  DISTTAG='el7'
+fi
+
 if [ ! -d "$CENTMINLOGDIR" ]; then
   mkdir -p "$CENTMINLOGDIR"
 fi
 
+{
 if [[ ! -f $(which fpm) ]]; then
-  yum -y install  ruby-devel gcc make rpm-build rubygems
+  yum -y install ruby-devel gcc make rpm-build rubygems
   gem install --no-ri --no-rdoc fpm
   fpm --version
 fi
 
-{
 yum -y install libacl-devel texi2html texinfo lzop
 if [[ -f /opt/rh/devtoolset-7/root/usr/bin/gcc && -f /opt/rh/devtoolset-7/root/usr/bin/g++ ]]; then
   label='-gcc7'

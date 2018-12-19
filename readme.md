@@ -1,6 +1,6 @@
 # tar custpm rpm with zstd compression support
 
-* CentOS 7 64bit Only
+* CentOS 6 & 7 64bit Only
 * latest tar version with zstd compression support
 
 ```
@@ -137,6 +137,8 @@ There is NO WARRANTY, to the extent permitted by law.
 Written by John Gilmore and Jay Fenlason.
 ```
 
+CentOS 7
+
 ```
 yum -q info tar-zstd-gcc7
 Installed Packages
@@ -146,6 +148,24 @@ Version     : 1.30.90
 Release     : 1.el7
 Size        : 3.4 M
 Repo        : installed
+Summary     : tar 1.30.90 zstd supported for centminmod.com LEMP stack
+URL         : https://centminmod.com
+License     : unknown
+Description : tar 1.30.90 zstd supported for centminmod.com LEMP stack
+```
+
+CentOS 6
+
+```
+yum -q info tar-zstd-gcc7
+Installed Packages
+Name        : tar-zstd-gcc7
+Arch        : x86_64
+Version     : 1.30.90
+Release     : 1.el6
+Size        : 3.4 M
+Repo        : installed
+From repo   : /tar-zstd-gcc7-1.30.90-1.el6.x86_64
 Summary     : tar 1.30.90 zstd supported for centminmod.com LEMP stack
 URL         : https://centminmod.com
 License     : unknown

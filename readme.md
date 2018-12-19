@@ -173,13 +173,13 @@ Description : tar 1.30.90 zstd supported for centminmod.com LEMP stack
 ```
 
 ```
-rpm -qa --changelog tar-zstd-gcc7   
+rpm -qa --changelog tar-zstd-gcc7 
 * Sat Dec 15 2018 George Liu <centminmod.com> 1.30.90
 - tar 1.30.90 zstd supported for centminmod.com LEMP stack
 ```
 
 ```
-rpm -ql tar-zstd-gcc7 
+rpm -ql tar-zstd-gcc7
 /usr/local/bin/tar
 /usr/local/libexec/rmt
 /usr/local/share/info/dir

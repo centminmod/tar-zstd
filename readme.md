@@ -24,9 +24,9 @@
 
 # tar zstd compression benchmarks
 
-![](/screenshots/tar-zstd-table-01.png)
+![](/screenshots/tar-zstd-table-03.png)
 
-![](/screenshots/tar-zstd-chart-01.png)
+![](/screenshots/tar-zstd-chart-03b.png)
 
 # Install
 

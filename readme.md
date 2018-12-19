@@ -22,6 +22,12 @@
   -Z, --compress, --uncompress   filter the archive through compress
 ```
 
+# tar zstd compression benchmarks
+
+![](/screenshots/tar-zstd-table-01.png)
+
+![](/screenshots/tar-zstd-chart-01.png)
+
 # Install
 
 On Centmin Mod 123.09beta01 or higher LEMP stack installs with CentOS 7.x 64bit first run centmin.sh menu option 17 to install multi-threaded compression tools including Facebook zstd compression tool.

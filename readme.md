@@ -1,7 +1,7 @@
-# tar custpm rpm with zstd compression support
+# tar custom rpm with zstd compression support
 
 * CentOS 6 & 7 64bit Only
-* latest tar version with zstd compression support
+* latest tar version with zstd compression support from [https://git.savannah.gnu.org/cgit/tar.git](https://git.savannah.gnu.org/cgit/tar.git)
 
 ```
  Compression options:
@@ -180,7 +180,7 @@ Description : tar 1.30.90 zstd supported for centminmod.com LEMP stack
 
 ```
 rpm -qa --changelog tar-zstd-gcc7 
-* Sat Dec 15 2018 George Liu <centminmod.com> 1.30.90
+* Sat Dec 23 2018 George Liu <centminmod.com> 1.30.90
 - tar 1.30.90 zstd supported for centminmod.com LEMP stack
 ```
 

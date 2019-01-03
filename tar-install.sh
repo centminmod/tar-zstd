@@ -3,7 +3,8 @@
 DT=$(date +"%d%m%y-%H%M%S")
 DIR_TMP='/svr-setup'
 CENTMINLOGDIR='/root/centminlogs'
-TARRPM_VER='1.30.90'
+TAR_MASTER='n'
+TARRPM_VER='1.31'
 TARRPM_NAME='tar-zstd'
 
 # RPM related
@@ -74,8 +75,13 @@ cd /svr-setup
 if [ -d tar ]; then
   rm -rf tar
 fi
-git clone --depth=1 https://git.savannah.gnu.org/git/tar.git
+git clone https://git.savannah.gnu.org/git/tar.git
 cd tar
+if [[ "$TAR_MASTER" = [nN] ]]; then
+  tagtar=$(git tag -l | grep release | tail -1)
+  TARRPM_VER=$(echo $tagtar | sed -e 's|_|.|g' -e 's|release.||')
+  git checkout $tagtar -b local-${TARRPM_VER}
+fi
 export FORCE_UNSAFE_CONFIGURE=1
 time ./bootstrap
 time ./configure

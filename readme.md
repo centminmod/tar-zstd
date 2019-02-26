@@ -134,8 +134,8 @@ tar -xaf directory.tar.zst
 
 ```
 tar --version
-tar (GNU tar) 1.30.90
-Copyright (C) 2018 Free Software Foundation, Inc.
+tar (GNU tar) 1.32
+Copyright (C) 2019 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -150,14 +150,14 @@ yum -q info tar-zstd-gcc7
 Installed Packages
 Name        : tar-zstd-gcc7
 Arch        : x86_64
-Version     : 1.30.90
+Version     : 1.32
 Release     : 1.el7
-Size        : 3.4 M
+Size        : 3.5 M
 Repo        : installed
-Summary     : tar 1.30.90 zstd supported for centminmod.com LEMP stack
+Summary     : tar 1.32 zstd supported for centminmod.com LEMP stack
 URL         : https://centminmod.com
 License     : unknown
-Description : tar 1.30.90 zstd supported for centminmod.com LEMP stack
+Description : tar 1.32 zstd supported for centminmod.com LEMP stack
 ```
 
 CentOS 6
@@ -167,21 +167,21 @@ yum -q info tar-zstd-gcc7
 Installed Packages
 Name        : tar-zstd-gcc7
 Arch        : x86_64
-Version     : 1.30.90
+Version     : 1.32
 Release     : 1.el6
-Size        : 3.4 M
+Size        : 3.5 M
 Repo        : installed
-From repo   : /tar-zstd-gcc7-1.30.90-1.el6.x86_64
-Summary     : tar 1.30.90 zstd supported for centminmod.com LEMP stack
+From repo   : /tar-zstd-gcc7-1.32-1.el6.x86_64
+Summary     : tar 1.32 zstd supported for centminmod.com LEMP stack
 URL         : https://centminmod.com
 License     : unknown
-Description : tar 1.30.90 zstd supported for centminmod.com LEMP stack
+Description : tar 1.32 zstd supported for centminmod.com LEMP stack
 ```
 
 ```
-rpm -qa --changelog tar-zstd-gcc7 
-* Sat Dec 23 2018 George Liu <centminmod.com> 1.30.90
-- tar 1.30.90 zstd supported for centminmod.com LEMP stack
+rpm -qa --changelog tar-zstd-gcc7
+* Tue Feb 26 2019 George Liu <centminmod.com> 1.32
+- tar 1.32 zstd supported for centminmod.com LEMP stack
 ```
 
 ```

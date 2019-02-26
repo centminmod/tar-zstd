@@ -4,7 +4,7 @@ DT=$(date +"%d%m%y-%H%M%S")
 DIR_TMP='/svr-setup'
 CENTMINLOGDIR='/root/centminlogs'
 TAR_MASTER='n'
-TARRPM_VER='1.31'
+TARRPM_VER='1.32'
 TARRPM_NAME='tar-zstd'
 
 # RPM related
@@ -63,7 +63,12 @@ if [[ ! -f $(which fpm) ]]; then
 fi
 
 yum -y install libacl-devel texi2html texinfo lzop
-if [[ -f /opt/rh/devtoolset-7/root/usr/bin/gcc && -f /opt/rh/devtoolset-7/root/usr/bin/g++ ]]; then
+if [[ -f /opt/rh/devtoolset-8/root/usr/bin/gcc && -f /opt/rh/devtoolset-8/root/usr/bin/g++ ]]; then
+  label='-gcc8'
+  source /opt/rh/devtoolset-8/enable
+  export CFLAGS="-Wimplicit-fallthrough=0"
+  export CXXFLAGS="${CFLAGS}"
+elif [[ -f /opt/rh/devtoolset-7/root/usr/bin/gcc && -f /opt/rh/devtoolset-7/root/usr/bin/g++ ]]; then
   label='-gcc7'
   source /opt/rh/devtoolset-7/enable
   export CFLAGS="-Wimplicit-fallthrough=0"

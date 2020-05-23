@@ -157,6 +157,73 @@ With `--long=31` mode for 2GB window
 tar "-I zstd -3 -T4 --long=31" -cf directory.tar.zst directory/
 ```
 
+Example for backing up Centmin Mod LEMP stack's `/home/nginx/domains/domain.com` Nginx vhost site data files for `domain.com` outlined at https://community.centminmod.com/threads/custom-tar-archiver-rpm-build-with-facebook-zstd-compression-support.16243/#post-69535
+
+```
+DT=$(date +"%d%m%y-%H%M%S")
+vhostname='domain.com'
+backupdir='/home/nginx-backup-sites'
+if [[ "$(awk '/MemFree/ {print $2}' /proc/meminfo)" -ge '2500000' ]]; then long=31; else long=27; fi
+pushd /home/nginx/domains/ && mkdir -p "${backupdir}"
+time tar "-I zstd -3 -T0 --long=${long} --adapt" --exclude=log/* --exclude=backup/* -cpf "${backupdir}/${vhostname}-${DT}.tar.zst" ${vhostname}
+fs=$(ls -lAh "${backupdir}/${vhostname}-${DT}.tar.zst" | awk '{print $5,$9}') && echo "$fs"
+popd && echo "backup ${vhostname} files only complete at ${backupdir}/${vhostname}-${DT}.tar.zst"
+```
+
+1. 1st line assigns to DT variable a date timestamp which is appended to your tar.zst backup file
+2. 2nd line for vhostname variable assigns variable for intended domain name you want to backup
+3. 3rd line assigns backupdir variable the directory where you want to save your tar.zst backup file
+4. 4th line determines which zstd long range method is used depending on how much free memory you have available. So if you have more than 2,500,000 KB free memory, zstd will use long range method with --long=31 for 2GB window. If you have less than 2,500,00 KB free memory, zstd will use long range method with --long=27 for 128MB window.
+5. 5th line uses pushd to change into /home/nginx/domains directory and create the backup directory set on 3rd line's backupdir variable
+6. 6th line, timed tar + zstd backup and compression which also uses zstd automatic level determination --adapt flag and -T0 meaning use all cpu cores. Tar also excludes contents of /home/nginx/domains/domain.com/log and /home/nginx/domains/domain.com/backup directories
+7. 7th line assigns to fs variable size and full path name of resulting tar.zst backup file and prints that out via echo command
+8. 8th line uses popd to return you to whatever directory you were in prior to pushd command on line 5 above and prints out completion message and full path to tar.zst backup file
+
+Listing of tar.zst backup compressed files
+
+```
+ls -lah /home/nginx-backup-sites           
+total 32K
+drwxr-xr-x   2 root root 4.0K Dec 20 02:03 .
+drwxr-xr-x. 31 root root 4.0K Dec 20 01:01 ..
+-rw-r--r--   1 root root  12K Dec 20 01:08 domain.com-201218-010827.tar.zst
+-rw-r--r--   1 root root  12K Dec 20 01:35 domain.com-201218-013419.tar.zst
+```
+
+To restore Centmin Mod Nginx vhost backup file outlined at https://community.centminmod.com/threads/custom-tar-archiver-rpm-build-with-facebook-zstd-compression-support.16243/#post-69535
+
+Edit and assign to backupfile variable the full path to the backup file you want to restore from the backup commands you ran above.
+
+```
+DT=$(date +"%d%m%y-%H%M%S")
+backupfile='/home/nginx-backup-sites/domain.com-201218-010827.tar.zst'
+vhostname='domain.com'
+restoredir="/home/nginx/domains/${vhostname}-restored-${DT}"
+mkdir -p ${restoredir}
+if [[ "$(awk '/MemFree/ {print $2}' /proc/meminfo)" -ge '2500000' ]]; then long=31; else long=27; fi
+time tar "-I zstd -d -T0 --long=${long}" -xvf ${backupfile} -C ${restoredir}
+echo "diff compare restore versus existing directories"
+diff -r /home/nginx/domains/${vhostname} ${restoredir}/${vhostname}
+echo "restored ${vhostname} files to ${restoredir}"
+```
+
+1. 1st line assigns to backupfile variable the full path to the backup file you want to restore from the backup commands you ran above.
+2. 2nd line for vhostname variable assigns variable for intended domain name you intend to restore to
+3. 3rd line assigns restoredir variable the directory where the backup tar.zst files' contents will be restored to. You can then compare or sync directory/files with the existing version of the nginx vhost or move the restored files to replace existing version of the nginx vhost
+4. 4th line creates the restore directory assigned to restoredir variable if it doesn't exist
+5. 5th line determines which zstd long range method is used depending on how much free memory you have available. So if you have more than 2,500,000 KB free memory, zstd will use long range method with --long=31 for 2GB window. If you have less than 2,500,00 KB free memory, zstd will use long range method with --long=27 for 128MB window.
+6. 6th line run timed tar decompress and extraction with zstd with all cpu cores and extract to restore directory
+7. 7th & 8th lines print out the differences only between restored directory from tar.zst backup and the existing nginx vhost site
+9. 9th line, restore completion message
+
+listing in /home/nginx/domains/ with existing nginx vhost directory and restored version
+
+```
+ls -lah /home/nginx/domains/ | grep ${vhostname}
+drwxr-s---   6 nginx nginx 4.0K Dec 20 01:04 domain.com
+drwxr-sr-x   3 root  nginx 4.0K Dec 20 01:36 domain.com-restored-201218-013419
+```
+
 # RPM Info
 
 ```

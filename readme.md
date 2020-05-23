@@ -75,20 +75,20 @@ For GCC 8 built
 
 ```
 cd /svr-setup
-wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc8-1.32-1.el6.x86_64.rpm -O tar-zstd-gcc8-1.32-1.el6.x86_64.rpm
-yum localinstall tar-zstd-gcc8-1.32-1.el6.x86_64.rpm
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc8-1.32-1.el7.x86_64.rpm -O tar-zstd-gcc8-1.32-1.el7.x86_64.rpm
+yum localinstall tar-zstd-gcc8-1.32-1.el7.x86_64.rpm
 ```
 
 For GCC 7 built
 
 ```
 cd /svr-setup
-wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc7-1.32-1.el6.x86_64.rpm -O tar-zstd-gcc7-1.32-1.el6.x86_64.rpm
-yum localinstall tar-zstd-gcc7-1.32-1.el6.x86_64.rpm
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc7-1.32-1.el7.x86_64.rpm -O tar-zstd-gcc7-1.32-1.el7.x86_64.rpm
+yum localinstall tar-zstd-gcc7-1.32-1.el7.x86_64.rpm
 ```
 
 ```
-yum localinstall tar-zstd-gcc8-1.32-1.el6.x86_64.rpm
+yum localinstall tar-zstd-gcc8-1.32-1.el7.x86_64.rpm
 Loaded plugins: fastestmirror, priorities, versionlock
 Examining /svr-setup/tar-zstd-gcc8-1.32-1.el7.x86_64.rpm: tar-zstd-gcc8-1.32-1.el7.x86_64
 Marking /svr-setup/tar-zstd-gcc8-1.32-1.el7.x86_64.rpm to be installed

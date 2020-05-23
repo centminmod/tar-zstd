@@ -71,47 +71,56 @@ zstd --version
 
 Then install custom tar zstd supported rpm.
 
+For GCC 8 built
+
 ```
 cd /svr-setup
-wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm -O tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm
-yum localinstall tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc8-1.32-1.el6.x86_64.rpm -O tar-zstd-gcc8-1.32-1.el6.x86_64.rpm
+yum localinstall tar-zstd-gcc8-1.32-1.el6.x86_64.rpm
+```
+
+For GCC 7 built
+
+```
+cd /svr-setup
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc7-1.32-1.el6.x86_64.rpm -O tar-zstd-gcc7-1.32-1.el6.x86_64.rpm
+yum localinstall tar-zstd-gcc7-1.32-1.el6.x86_64.rpm
 ```
 
 ```
-yum localinstall tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm
+yum localinstall tar-zstd-gcc8-1.32-1.el6.x86_64.rpm
 Loaded plugins: fastestmirror, priorities, versionlock
-Examining tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm: tar-zstd-gcc7-1.30.90-1.el7.x86_64
-Marking tar-zstd-gcc7-1.30.90-1.el7.x86_64.rpm to be installed
+Examining /svr-setup/tar-zstd-gcc8-1.32-1.el7.x86_64.rpm: tar-zstd-gcc8-1.32-1.el7.x86_64
+Marking /svr-setup/tar-zstd-gcc8-1.32-1.el7.x86_64.rpm to be installed
 Resolving Dependencies
 --> Running transaction check
----> Package tar-zstd-gcc7.x86_64 0:1.30.90-1.el7 will be installed
+---> Package tar-zstd-gcc8.x86_64 0:1.32-1.el7 will be installed
 --> Finished Dependency Resolution
 
 Dependencies Resolved
 
-==========================================================================================================================================================================================================================================================
- Package                                                  Arch                                              Version                                                  Repository                                                                      Size
-==========================================================================================================================================================================================================================================================
+================================================================================
+ Package         Arch     Version      Repository                          Size
+================================================================================
 Installing:
- tar-zstd-gcc7                                            x86_64                                            1.30.90-1.el7                                            /tar-zstd-gcc7-1.30.90-1.el7.x86_64                                            3.4 M
+ tar-zstd-gcc8   x86_64   1.32-1.el7   /tar-zstd-gcc8-1.32-1.el7.x86_64   3.5 M
 
 Transaction Summary
-==========================================================================================================================================================================================================================================================
+================================================================================
 Install  1 Package
 
-Total size: 3.4 M
-Installed size: 3.4 M
-Is this ok [y/d/N]: y
+Total size: 3.5 M
+Installed size: 3.5 M
 Downloading packages:
 Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-  Installing : tar-zstd-gcc7-1.30.90-1.el7.x86_64                                                                                                                                                                                                     1/1 
-  Verifying  : tar-zstd-gcc7-1.30.90-1.el7.x86_64                                                                                                                                                                                                     1/1 
+  Installing : tar-zstd-gcc8-1.32-1.el7.x86_64                              1/1 
+  Verifying  : tar-zstd-gcc8-1.32-1.el7.x86_64                              1/1 
 
 Installed:
-  tar-zstd-gcc7.x86_64 0:1.30.90-1.el7                                                                                                                                                                                                                    
+  tar-zstd-gcc8.x86_64 0:1.32-1.el7                                             
 
 Complete!
 ```
@@ -145,6 +154,26 @@ Written by John Gilmore and Jay Fenlason.
 
 CentOS 7
 
+Built with GCC 8
+
+```
+yum -q info tar-zstd-gcc8
+Installed Packages
+Name        : tar-zstd-gcc8
+Arch        : x86_64
+Version     : 1.32
+Release     : 1.el7
+Size        : 3.5 M
+Repo        : installed
+From repo   : /tar-zstd-gcc8-1.32-1.el7.x86_64
+Summary     : tar 1.32 zstd supported for centminmod.com LEMP stack
+URL         : https://centminmod.com
+License     : unknown
+Description : tar 1.32 zstd supported for centminmod.com LEMP stack
+```
+
+Built with GCC 7
+
 ```
 yum -q info tar-zstd-gcc7
 Installed Packages
@@ -177,6 +206,16 @@ URL         : https://centminmod.com
 License     : unknown
 Description : tar 1.32 zstd supported for centminmod.com LEMP stack
 ```
+
+For GCC 8 built
+
+```
+rpm -qa --changelog tar-zstd-gcc8
+* Sat May 23 2020 George Liu <centminmod.com> 1.32
+- tar 1.32 zstd supported for centminmod.com LEMP stack
+```
+
+For GCC 7 built
 
 ```
 rpm -qa --changelog tar-zstd-gcc7

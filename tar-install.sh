@@ -63,15 +63,20 @@ if [[ ! -f $(which fpm) ]]; then
 fi
 
 yum -y install libacl-devel texi2html texinfo lzop
-if [[ -f /opt/rh/devtoolset-8/root/usr/bin/gcc && -f /opt/rh/devtoolset-8/root/usr/bin/g++ ]]; then
+if [[ -f /opt/rh/devtoolset-9/root/usr/bin/gcc && -f /opt/rh/devtoolset-9/root/usr/bin/g++ ]]; then
+  label='-gcc9'
+  source /opt/rh/devtoolset-9/enable
+  export CFLAGS="-Wimplicit-fallthrough=0 -fcode-hoisting -Wno-cast-function-type -Wno-error=cast-align -Wno-implicit-function-declaration -Wno-builtin-declaration-mismatch"
+  export CXXFLAGS="${CFLAGS}"
+elif [[ -f /opt/rh/devtoolset-8/root/usr/bin/gcc && -f /opt/rh/devtoolset-8/root/usr/bin/g++ ]]; then
   label='-gcc8'
   source /opt/rh/devtoolset-8/enable
-  export CFLAGS="-Wimplicit-fallthrough=0"
+  export CFLAGS="-Wimplicit-fallthrough=0 -fcode-hoisting -Wno-cast-function-type -Wno-error=cast-align -Wno-implicit-function-declaration -Wno-builtin-declaration-mismatch"
   export CXXFLAGS="${CFLAGS}"
 elif [[ -f /opt/rh/devtoolset-7/root/usr/bin/gcc && -f /opt/rh/devtoolset-7/root/usr/bin/g++ ]]; then
   label='-gcc7'
   source /opt/rh/devtoolset-7/enable
-  export CFLAGS="-Wimplicit-fallthrough=0"
+  export CFLAGS="-Wimplicit-fallthrough=0 -fcode-hoisting -Wno-cast-function-type -Wno-error=cast-align -Wno-implicit-function-declaration -Wno-builtin-declaration-mismatch"
   export CXXFLAGS="${CFLAGS}"
 else
   label=""

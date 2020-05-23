@@ -139,6 +139,24 @@ Decompress zstd compressed archive
 tar -xaf directory.tar.zst
 ```
 
+Or create tar archive with custom zstd compression level = 4 cpu thread zstd test at level 3 compression
+
+```
+tar "-I zstd -3 -T4" -cf directory.tar.zst directory/
+```
+
+With [zstd Long Range Mode flag](https://community.centminmod.com/threads/custom-tar-archiver-rpm-build-with-facebook-zstd-compression-support.16243/#post-69530) `--long=27` mode for 128MB window
+
+```
+tar "-I zstd -3 -T4 --long=27" -cf directory.tar.zst directory/
+```
+
+With `--long=31` mode for 2GB window
+
+```
+tar "-I zstd -3 -T4 --long=31" -cf directory.tar.zst directory/
+```
+
 # RPM Info
 
 ```

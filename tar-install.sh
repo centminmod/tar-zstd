@@ -4,7 +4,7 @@ DT=$(date +"%d%m%y-%H%M%S")
 DIR_TMP='/svr-setup'
 CENTMINLOGDIR='/root/centminlogs'
 TAR_MASTER='n'
-TARRPM_VER='1.32'
+TARRPM_VER='1.33'
 TARRPM_NAME='tar-zstd'
 
 # RPM related
@@ -93,6 +93,22 @@ if [[ "$TAR_MASTER" = [nN] ]]; then
   git checkout $tagtar -b local-${TARRPM_VER}
 fi
 export FORCE_UNSAFE_CONFIGURE=1
+# reduce automake 1.15 min version requirements
+# https://git.savannah.gnu.org/cgit/tar.git/commit/?id=0836a5114770e12ef4f4ebb3972868ba844f43f5
+sed -i 's|AM_INIT_AUTOMAKE(\[1.15|AM_INIT_AUTOMAKE(\[1.13.4|' configure.ac
+# patch
+wget -4 -O devfull.patch https://git.savannah.gnu.org/cgit/tar.git/patch/?id=e4d1edadefdeefcca3b72ec32744c52020fe4642
+wget -4 -O stdopen.patch https://git.savannah.gnu.org/cgit/tar.git/patch/?id=0b43ea2906432873416576cb90608f72b6fbf18a
+wget -4 -O delarchivemember.patch https://git.savannah.gnu.org/cgit/tar.git/patch/?id=8e2898ab11f687aefb4d1deb9f27295e6a1080a1
+wget -4 -O regress1.patch https://git.savannah.gnu.org/cgit/tar.git/patch/?id=972bebf07e7ec6a259efca9ed58c3b8ca121ea6e
+wget -4 -O improparg.patch https://git.savannah.gnu.org/cgit/tar.git/patch/?id=2251317e3fe971fd34608cf312c8120141d8fce4
+wget -4 -O memleak.patch https://git.savannah.gnu.org/cgit/tar.git/patch/?id=d9d4435692150fa8ff68e1b1a473d187cc3fd777
+patch -p1 < devfull.patch
+patch -p1 < stdopen.patch
+patch -p1 < delarchivemember.patch
+patch -p1 < regress1.patch
+patch -p1 < improparg.patch
+patch -p1 < memleak.patch
 time ./bootstrap
 time ./configure
 time make -j$(nproc)

@@ -71,6 +71,22 @@ zstd --version
 
 Then install custom tar zstd supported rpm.
 
+For GCC 9 built tar v1.33 ** Currently Limited Testing **
+
+```
+cd /svr-setup
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc9-1.33-1.el7.x86_64.rpm -O tar-zstd-gcc9-1.33-1.el7.x86_64.rpm
+yum localinstall tar-zstd-gcc9-1.33-1.el7.x86_64.rpm
+```
+```
+tar --version
+tar (GNU tar) 1.33
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+```
+
 For GCC 8 built
 
 ```

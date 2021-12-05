@@ -71,6 +71,103 @@ zstd --version
 
 Then install custom tar zstd supported rpm.
 
+For GCC 11 built tar v1.34 with additionally synced master branch fixes & for GCC 11 compatibility ** Currently Limited Testing **
+
+```
+cd /svr-setup
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc11-2021.10.13-1.34-1.el7.x86_64.rpm -O tar-zstd-gcc11-2021.10.13-1.34-1.el7.x86_64.rpm
+yum localinstall tar-zstd-gcc11-2021.10.13-1.34-1.el7.x86_64.rpm
+```
+```
+tar --version
+tar (GNU tar) 1.34
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by John Gilmore and Jay Fenlason.
+```
+
+```
+rpm -qa --changelog tar-zstd-gcc11-2021.10.13
+* Sun Dec 05 2021 George Liu <centminmod.com> 1.34
+- tar 1.34 2021.10.13 zstd supported for centminmod.com LEMP stack
+- latest tar git master build 2021.10.13
+
+* Sun Dec 05 2021 George Liu <centminmod.com> 1.34
+- Fix extraction over pipe (savannah bug #60002)
+- Fix memory leak in read_header (savannah bug #59897)
+- Fix extraction when . and .. are unreadable
+  See https://lists.gnu.org/archive/html/bug-tar/2021-01/msg00012.html
+- Gracefully handle duplicate symlinks when extracting
+  See https://lists.gnu.org/archive/html/bug-tar/2021-01/msg00026.html
+- Re-initialize supplementary groups when switching to user privileges
+```
+
+```
+yum -q info tar-zstd-gcc11-2021.10.13
+Installed Packages
+Name        : tar-zstd-gcc11-2021.10.13
+Arch        : x86_64
+Version     : 1.34
+Release     : 1.el7
+Size        : 3.5 M
+Repo        : installed
+From repo   : /tar-zstd-gcc11-2021.10.13-1.34-1.el7.x86_64
+Summary     : tar 1.34 zstd supported for centminmod.com LEMP stack
+URL         : https://centminmod.com
+License     : unknown
+Description : tar 1.34 zstd supported for centminmod.com LEMP stack
+```
+
+For GCC 9 built tar v1.34 ** Currently Limited Testing **
+
+```
+cd /svr-setup
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc9-1.34-1.el7.x86_64.rpm -O tar-zstd-gcc9-1.34-1.el7.x86_64.rpm
+yum localinstall tar-zstd-gcc9-1.34-1.el7.x86_64.rpm
+```
+```
+tar --version
+tar (GNU tar) 1.34
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by John Gilmore and Jay Fenlason.
+```
+
+```
+rpm -qa --changelog tar-zstd-gcc9
+* Sun Dec 05 2021 George Liu <centminmod.com> 1.34
+- tar 1.34 zstd supported for centminmod.com LEMP stack
+- Fix extraction over pipe (savannah bug #60002)
+- Fix memory leak in read_header (savannah bug #59897)
+- Fix extraction when . and .. are unreadable
+  See https://lists.gnu.org/archive/html/bug-tar/2021-01/msg00012.html
+- Gracefully handle duplicate symlinks when extracting
+  See https://lists.gnu.org/archive/html/bug-tar/2021-01/msg00026.html
+- Re-initialize supplementary groups when switching to user privileges
+```
+
+```
+yum -q info tar-zstd-gcc9.x86_64
+Installed Packages
+Name        : tar-zstd-gcc9
+Arch        : x86_64
+Version     : 1.34
+Release     : 1.el7
+Size        : 3.5 M
+Repo        : installed
+From repo   : /tar-zstd-gcc9-1.34-1.el7.x86_64
+Summary     : tar 1.34 zstd supported for centminmod.com LEMP stack
+URL         : https://centminmod.com
+License     : unknown
+Description : tar 1.34 zstd supported for centminmod.com LEMP stack
+```
+
 For GCC 9 built tar v1.33 ** Currently Limited Testing **
 
 ```
@@ -85,6 +182,29 @@ Copyright (C) 2021 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
+```
+
+```
+rpm -qa --changelog tar-zstd-gcc9
+* Mon Jan 25 2021 George Liu <centminmod.com> 1.33
+- tar 1.33 zstd supported for centminmod.com LEMP stack
+- Fix memory leak in read_header CVE-2021-20193 patch fixed
+```
+
+```
+yum -q info tar-zstd-gcc9.x86_64
+Installed Packages
+Name        : tar-zstd-gcc9
+Arch        : x86_64
+Version     : 1.33
+Release     : 1.el7
+Size        : 3.5 M
+Repo        : installed
+From repo   : /tar-zstd-gcc9-1.33-1.el7.x86_64
+Summary     : tar 1.33 zstd supported for centminmod.com LEMP stack
+URL         : https://centminmod.com
+License     : unknown
+Description : tar 1.33 zstd supported for centminmod.com LEMP stack
 ```
 
 For GCC 8 built

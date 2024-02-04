@@ -66,10 +66,132 @@ Enter option [ 1 - 24 ] 17
 
 ```
 zstd --version
-*** zstd command line interface 64-bits v1.3.7, by Yann Collet ***
+*** Zstandard CLI (64-bit) v1.5.5, by Yann Collet ***
 ```
 
 Then install custom tar zstd supported rpm.
+
+AlmaLinux 9 for GCC 13 built tar v1.35 ** Currently Limited Testing **
+
+```
+cd /svr-setup
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc13-1.35-1.el9.x86_64.rpm -O tar-zstd-gcc13-1.35-1.el9.x86_64.rpm
+yum localinstall tar-zstd-gcc13-1.35-1.el9.x86_64.rpm
+```
+```
+tar --version
+tar (GNU tar) 1.35
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by John Gilmore and Jay Fenlason.
+```
+
+```
+rpm -qa --changelog tar-zstd-gcc13       
+* Sun Feb 04 2024 George Liu <centminmod.com> 1.35
+- tar 1.35 zstd supported for centminmod.com LEMP stack
+```
+
+```
+yum -q info tar-zstd-gcc13.x86_64
+Installed Packages
+Name         : tar-zstd-gcc13
+Version      : 1.35
+Release      : 1.el9
+Architecture : x86_64
+Size         : 3.5 M
+Source       : tar-zstd-gcc13-1.35-1.el9.src.rpm
+Repository   : @System
+From repo    : @commandline
+Summary      : tar 1.35 zstd supported for centminmod.com LEMP stack
+URL          : https://centminmod.com
+License      : unknown
+Description  : tar 1.35 zstd supported for centminmod.com LEMP stack
+```
+
+AlmaLinux 8 for GCC 12 built tar v1.35 ** Currently Limited Testing **
+
+```
+cd /svr-setup
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc12-1.35-1.el8.x86_64.rpm -O tar-zstd-gcc12-1.35-1.el8.x86_64.rpm
+yum localinstall tar-zstd-gcc12-1.35-1.el8.x86_64.rpm
+```
+```
+tar --version
+tar (GNU tar) 1.35
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by John Gilmore and Jay Fenlason.
+```
+
+```
+rpm -qa --changelog tar-zstd-gcc12       
+* Sun Feb 04 2024 George Liu <centminmod.com> 1.35
+- tar 1.35 zstd supported for centminmod.com LEMP stack
+```
+
+```
+yum -q info tar-zstd-gcc12.x86_64
+Installed Packages
+Name         : tar-zstd-gcc12
+Version      : 1.35
+Release      : 1.el8
+Architecture : x86_64
+Size         : 3.6 M
+Source       : tar-zstd-gcc12-1.35-1.el8.src.rpm
+Repository   : @System
+From repo    : @commandline
+Summary      : tar 1.35 zstd supported for centminmod.com LEMP stack
+URL          : https://centminmod.com
+License      : unknown
+Description  : tar 1.35 zstd supported for centminmod.com LEMP stack
+```
+
+CentOS 7 for GCC 10 built tar v1.35 ** Currently Limited Testing **
+
+```
+cd /svr-setup
+wget https://centminmod.com/centminmodparts/tar/tar-zstd-gcc10-1.35-1.el7.x86_64.rpm -O tar-zstd-gcc10-1.35-1.el7.x86_64.rpm
+yum localinstall tar-zstd-gcc10-1.35-1.el7.x86_64.rpm
+```
+```
+tar --version
+tar (GNU tar) 1.35
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by John Gilmore and Jay Fenlason.
+```
+
+```
+rpm -qa --changelog tar-zstd-gcc10       
+* Sun Feb 04 2024 George Liu <centminmod.com> 1.35
+- tar 1.35 zstd supported for centminmod.com LEMP stack
+```
+
+```
+yum -q info tar-zstd-gcc10.x86_64
+Installed Packages
+Name        : tar-zstd-gcc10
+Arch        : x86_64
+Version     : 1.35
+Release     : 1.el7
+Size        : 3.6 M
+Repo        : installed
+From repo   : /tar-zstd-gcc10-1.35-1.el7.x86_64
+Summary     : tar 1.35 zstd supported for centminmod.com LEMP stack
+URL         : https://centminmod.com
+License     : unknown
+Description : tar 1.35 zstd supported for centminmod.com LEMP stack
+```
 
 For GCC 11 built tar v1.34 with additionally synced master branch fixes & for GCC 11 compatibility ** Currently Limited Testing **
 

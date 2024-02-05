@@ -71,7 +71,7 @@ zstd --version
 
 Then install custom tar zstd supported rpm.
 
-AlmaLinux 9 for GCC 13 built tar v1.35 ** Currently Limited Testing **
+AlmaLinux 9 for GCC 13 built tar v1.35 ** Currently Limited Testing ** [[tar v1.35 change log](https://git.savannah.gnu.org/cgit/tar.git/tree/NEWS?id=e545d446dfe6564265cdf4186641ee76f4acc7fa)]
 
 ```
 cd /svr-setup
@@ -112,7 +112,7 @@ License      : unknown
 Description  : tar 1.35 zstd supported for centminmod.com LEMP stack
 ```
 
-AlmaLinux 8 for GCC 12 built tar v1.35 ** Currently Limited Testing **
+AlmaLinux 8 for GCC 12 built tar v1.35 ** Currently Limited Testing ** [[tar v1.35 change log](https://git.savannah.gnu.org/cgit/tar.git/tree/NEWS?id=e545d446dfe6564265cdf4186641ee76f4acc7fa)]
 
 ```
 cd /svr-setup
@@ -153,7 +153,7 @@ License      : unknown
 Description  : tar 1.35 zstd supported for centminmod.com LEMP stack
 ```
 
-CentOS 7 for GCC 10 built tar v1.35 ** Currently Limited Testing **
+CentOS 7 for GCC 10 built tar v1.35 ** Currently Limited Testing ** [[tar v1.35 change log](https://git.savannah.gnu.org/cgit/tar.git/tree/NEWS?id=e545d446dfe6564265cdf4186641ee76f4acc7fa)]
 
 ```
 cd /svr-setup
